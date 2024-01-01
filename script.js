@@ -7,6 +7,7 @@ let gridDimensions = GRID_DEFAULT;
 let mouseIsDown = false;
 
 const canvasContainer = document.querySelector("#canvasContainer");
+const colorPicker = document.querySelector("#colorPicker");
 
 for (let i = 0; i < gridDimensions * gridDimensions; i++) {
   let canvasUnit = document.createElement("div");
@@ -15,6 +16,7 @@ for (let i = 0; i < gridDimensions * gridDimensions; i++) {
 
   canvasUnit.addEventListener("mousemove", () => {
     if (mouseIsDown) {
+      penColor = colorPicker.value;
       canvasUnit.style.backgroundColor = penColor;
     }
   });
