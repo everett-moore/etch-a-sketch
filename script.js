@@ -14,16 +14,19 @@ for (let i = 0; i < gridDimensions * gridDimensions; i++) {
   canvasUnit.classList.add("canvas");
   canvasContainer.appendChild(canvasUnit);
 
+  canvasContainer.addEventListener("mouseleave", () => {
+    mouseIsDown = false;
+  });
   canvasUnit.addEventListener("mousemove", () => {
     if (mouseIsDown) {
       penColor = colorPicker.value;
       canvasUnit.style.backgroundColor = penColor;
     }
   });
-  canvasUnit.addEventListener("mousedown", () => {
+  canvasContainer.addEventListener("mousedown", () => {
     mouseIsDown = true;
   });
-  canvasUnit.addEventListener("mouseup", () => {
+  canvasContainer.addEventListener("mouseup", () => {
     mouseIsDown = false;
   });
 }

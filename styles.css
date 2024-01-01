@@ -1,11 +1,12 @@
 #canvasContainer {
   display: flex;
   flex-flow: column wrap;
-  width: 1000px;
-  height: 1000px;
+  width: 750px;
+  height: 750px;
+  border: 2px solid darkslategrey;
 }
 
 .canvas {
-  width: 62.5px;
-  height: 62.5px;
+  width: 46.875px;
+  height: 46.875px;
 }
