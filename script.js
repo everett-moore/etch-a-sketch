@@ -12,8 +12,8 @@ const colorPicker = document.querySelector("#colorPicker");
 for (let i = 0; i < gridDimensions * gridDimensions; i++) {
   let canvasUnit = document.createElement("div");
   canvasUnit.classList.add("canvas");
+  canvasUnit.setAttribute("draggable", "false");
   canvasContainer.appendChild(canvasUnit);
-
   canvasContainer.addEventListener("mouseleave", () => {
     mouseIsDown = false;
   });
@@ -23,7 +23,8 @@ for (let i = 0; i < gridDimensions * gridDimensions; i++) {
       canvasUnit.style.backgroundColor = penColor;
     }
   });
-  canvasContainer.addEventListener("mousedown", () => {
+  canvasContainer.addEventListener("mousedown", (e) => {
+    e.preventDefault();
     mouseIsDown = true;
   });
   canvasContainer.addEventListener("mouseup", () => {
