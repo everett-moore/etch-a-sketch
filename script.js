@@ -23,6 +23,10 @@ for (let i = 0; i < gridDimensions * gridDimensions; i++) {
       canvasUnit.style.backgroundColor = penColor;
     }
   });
+  canvasUnit.addEventListener("mousedown", () => {
+    penColor = colorPicker.value;
+    canvasUnit.style.backgroundColor = penColor;
+  });
   canvasContainer.addEventListener("mousedown", (e) => {
     e.preventDefault();
     mouseIsDown = true;
