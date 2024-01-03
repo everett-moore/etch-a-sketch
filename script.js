@@ -7,6 +7,8 @@ let mouseIsDown = false;
 
 const canvasContainer = document.querySelector("#canvasContainer");
 const colorPicker = document.querySelector("#colorPicker");
+const clear = document.querySelector("#clearButton");
+clear.textContent = "Clear";
 
 function createCanvas() {
   for (let i = 0; i < gridDimensions * gridDimensions; i++) {
@@ -31,11 +33,20 @@ function createCanvas() {
     canvasContainer.addEventListener("mouseup", () => {
       mouseIsDown = false;
     });
+
+    clear.addEventListener("click", () => {
+      clearCanvas(canvasUnit);
+    });
   }
 }
 
 function getBrushColor(canvasUnit) {
   penColor = colorPicker.value;
+  canvasUnit.style.backgroundColor = penColor;
+}
+
+function clearCanvas(canvasUnit) {
+  penColor = "";
   canvasUnit.style.backgroundColor = penColor;
 }
 
