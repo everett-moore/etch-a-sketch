@@ -4,12 +4,16 @@ const GRID_DEFAULT = 16;
 let penColor = COLOR_DEFAULT;
 let gridDimensions = GRID_DEFAULT;
 let mouseIsDown = false;
+let colorIsToggled = true;
+let eraserIsToggled = false;
 
 const canvasContainer = document.querySelector("#canvasContainer");
 const colorPicker = document.querySelector("#colorPicker");
-colorPicker.addEventListener("click", () => {
+const colorButton = document.querySelector("#colorButton");
+colorButton.addEventListener("click", () => {
   eraserIsToggled = false;
 });
+colorButton.textContent = "Color";
 const eraser = document.querySelector("#eraser");
 eraser.textContent = "Eraser";
 eraser.addEventListener("click", () => {
@@ -50,7 +54,9 @@ function createCanvas() {
 
 function getBrushColor(canvasUnit) {
   penColor = colorPicker.value;
-  canvasUnit.style.backgroundColor = penColor;
+  if (colorIsToggled) {
+    canvasUnit.style.backgroundColor = penColor;
+  }
   if (eraserIsToggled) {
     canvasUnit.style.backgroundColor = "";
   }
