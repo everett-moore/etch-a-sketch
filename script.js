@@ -7,6 +7,14 @@ let mouseIsDown = false;
 
 const canvasContainer = document.querySelector("#canvasContainer");
 const colorPicker = document.querySelector("#colorPicker");
+colorPicker.addEventListener("click", () => {
+  eraserIsToggled = false;
+});
+const eraser = document.querySelector("#eraser");
+eraser.textContent = "Eraser";
+eraser.addEventListener("click", () => {
+  eraserIsToggled = true;
+});
 const clear = document.querySelector("#clearButton");
 clear.textContent = "Clear";
 
@@ -43,6 +51,9 @@ function createCanvas() {
 function getBrushColor(canvasUnit) {
   penColor = colorPicker.value;
   canvasUnit.style.backgroundColor = penColor;
+  if (eraserIsToggled) {
+    canvasUnit.style.backgroundColor = "";
+  }
 }
 
 function clearCanvas(canvasUnit) {
