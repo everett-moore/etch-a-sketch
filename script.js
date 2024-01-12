@@ -6,18 +6,25 @@ let gridDimensions = GRID_DEFAULT;
 let mouseIsDown = false;
 let colorIsToggled = true;
 let eraserIsToggled = false;
+let rainbowIsToggled = false;
 
 const canvasContainer = document.querySelector("#canvasContainer");
 const colorPicker = document.querySelector("#colorPicker");
 const colorButton = document.querySelector("#colorButton");
 colorButton.addEventListener("click", () => {
   eraserIsToggled = false;
+  rainbowIsToggled = false;
 });
 colorButton.textContent = "Color";
 const eraser = document.querySelector("#eraser");
 eraser.textContent = "Eraser";
 eraser.addEventListener("click", () => {
   eraserIsToggled = true;
+});
+const rainbow = document.querySelector("#rainbowButton");
+rainbow.textContent = "Rainbow";
+rainbow.addEventListener("click", () => {
+  rainbowIsToggled = true;
 });
 const clear = document.querySelector("#clearButton");
 clear.textContent = "Clear";
@@ -30,14 +37,13 @@ function createCanvas() {
     canvasContainer.addEventListener("mouseleave", () => {
       mouseIsDown = false;
     });
-    canvasUnit.addEventListener("mousemove", () => {
+
+    canvasUnit.addEventListener("mouseenter", () => {
       if (mouseIsDown) {
         getBrushColor(canvasUnit);
       }
     });
-    canvasUnit.addEventListener("mousedown", () => {
-      getBrushColor(canvasUnit);
-    });
+
     canvasContainer.addEventListener("mousedown", (e) => {
       e.preventDefault();
       mouseIsDown = true;
@@ -60,6 +66,9 @@ function getBrushColor(canvasUnit) {
   if (eraserIsToggled) {
     canvasUnit.style.backgroundColor = "";
   }
+  if (rainbowIsToggled)
+    canvasUnit.style.backgroundColor =
+      "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
 function clearCanvas(canvasUnit) {
