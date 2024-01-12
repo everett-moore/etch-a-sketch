@@ -1,14 +1,22 @@
 const COLOR_DEFAULT = "black";
-const GRID_DEFAULT = 16;
 
 let penColor = COLOR_DEFAULT;
-let gridDimensions = GRID_DEFAULT;
 let mouseIsDown = false;
 let colorIsToggled = true;
 let eraserIsToggled = false;
 let rainbowIsToggled = false;
 
 const canvasContainer = document.querySelector("#canvasContainer");
+canvasContainer.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  mouseIsDown = true;
+});
+canvasContainer.addEventListener("mouseleave", () => {
+  mouseIsDown = false;
+});
+canvasContainer.addEventListener("mouseup", () => {
+  mouseIsDown = false;
+});
 const colorPicker = document.querySelector("#colorPicker");
 const colorButton = document.querySelector("#colorButton");
 colorButton.addEventListener("click", () => {
@@ -20,6 +28,7 @@ const eraser = document.querySelector("#eraser");
 eraser.textContent = "Eraser";
 eraser.addEventListener("click", () => {
   eraserIsToggled = true;
+  rainbowIsToggled = false;
 });
 const rainbow = document.querySelector("#rainbowButton");
 rainbow.textContent = "Rainbow";
@@ -29,27 +38,28 @@ rainbow.addEventListener("click", () => {
 const clear = document.querySelector("#clearButton");
 clear.textContent = "Clear";
 
-function createCanvas() {
+const gridSlider = document.querySelector("#gridSlider");
+gridSlider.addEventListener("mouseup", () => {
+  canvasContainer
+    .querySelectorAll("*")
+    .forEach((canvasUnit) => canvasUnit.remove());
+  createCanvas(gridSlider.value);
+});
+
+function createCanvas(gridDimensions) {
   for (let i = 0; i < gridDimensions * gridDimensions; i++) {
     let canvasUnit = document.createElement("div");
-    canvasUnit.classList.add("canvas");
+    canvasUnit.style.width = 750 / gridDimensions + "px";
+    canvasUnit.style.height = 750 / gridDimensions + "px";
     canvasContainer.appendChild(canvasUnit);
-    canvasContainer.addEventListener("mouseleave", () => {
-      mouseIsDown = false;
-    });
 
     canvasUnit.addEventListener("mouseenter", () => {
       if (mouseIsDown) {
         getBrushColor(canvasUnit);
       }
     });
-
-    canvasContainer.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      mouseIsDown = true;
-    });
-    canvasContainer.addEventListener("mouseup", () => {
-      mouseIsDown = false;
+    canvasUnit.addEventListener("mousedown", () => {
+      getBrushColor(canvasUnit);
     });
 
     clear.addEventListener("click", () => {
@@ -76,4 +86,4 @@ function clearCanvas(canvasUnit) {
   canvasUnit.style.backgroundColor = penColor;
 }
 
-createCanvas();
+createCanvas(gridSlider.value);
