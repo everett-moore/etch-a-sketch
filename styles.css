@@ -3,7 +3,7 @@
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 90px;
   color: rgb(62, 62, 62);
 }
 
@@ -21,6 +21,11 @@ h1 {
   width: 800px;
   height: 800px;
   border: 2px solid darkslategrey;
+}
+
+#canvasSettings {
+  display: flex;
+  justify-content: center;
 }
 
 button {

@@ -45,6 +45,12 @@ gridSlider.addEventListener("mouseup", () => {
   createCanvas(gridSlider.value);
 });
 
+const dimensionNum = document.querySelector("#dimensionNum");
+dimensionNum.textContent = `${gridSlider.value} x ${gridSlider.value} `;
+gridSlider.addEventListener("input", () => {
+  dimensionNum.textContent = `${gridSlider.value} x ${gridSlider.value} `;
+});
+
 function createCanvas(gridDimensions) {
   for (let i = 0; i < gridDimensions * gridDimensions; i++) {
     let canvasUnit = document.createElement("div");
