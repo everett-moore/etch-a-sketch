@@ -1,8 +1,18 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+  color: rgb(62, 62, 62);
+}
+
 #canvas {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 80vh;
 }
 
 #canvasContainer {
@@ -13,13 +23,12 @@
   border: 2px solid darkslategrey;
 }
 
-#buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 button {
   width: 150px;
   height: 45px;
+  border-radius: 15px;
+  border-width: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white;
 }
