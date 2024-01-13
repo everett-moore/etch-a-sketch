@@ -1,6 +1,5 @@
-const COLOR_DEFAULT = "black";
-
-let penColor = COLOR_DEFAULT;
+let penColor = "black";
+let canvasSize = 800;
 let mouseIsDown = false;
 let colorIsToggled = true;
 let eraserIsToggled = false;
@@ -49,8 +48,8 @@ gridSlider.addEventListener("mouseup", () => {
 function createCanvas(gridDimensions) {
   for (let i = 0; i < gridDimensions * gridDimensions; i++) {
     let canvasUnit = document.createElement("div");
-    canvasUnit.style.width = 750 / gridDimensions + "px";
-    canvasUnit.style.height = 750 / gridDimensions + "px";
+    canvasUnit.style.width = canvasSize / gridDimensions + "px";
+    canvasUnit.style.height = canvasSize / gridDimensions + "px";
     canvasContainer.appendChild(canvasUnit);
 
     canvasUnit.addEventListener("mouseenter", () => {

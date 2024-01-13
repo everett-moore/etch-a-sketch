@@ -1,7 +1,25 @@
+#canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
 #canvasContainer {
   display: flex;
   flex-flow: column wrap;
-  width: 750px;
-  height: 750px;
+  width: 800px;
+  height: 800px;
   border: 2px solid darkslategrey;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 150px;
+  height: 45px;
 }
