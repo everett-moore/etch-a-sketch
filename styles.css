@@ -18,15 +18,14 @@ h1 {
 #canvasContainer {
   display: flex;
   flex-flow: column wrap;
-  width: 800px;
-  height: 800px;
+  width: 500px;
+  height: 500px;
   border: 2px solid darkslategrey;
 }
 
 #canvasSettings {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .topRow {

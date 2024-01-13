@@ -1,5 +1,5 @@
 let penColor = "black";
-let canvasSize = 800;
+let canvasSize = 500;
 let mouseIsDown = false;
 let colorIsToggled = true;
 let eraserIsToggled = false;
