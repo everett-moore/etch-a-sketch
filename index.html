@@ -9,22 +9,20 @@
   </head>
   <body>
     <div id="canvas">
-    <h1>Etch-a-Sketch</h1>
-    <div id="canvasContainer"></div>
-    </div>
+      <h1>Etch-a-Sketch</h1>
+      <div id="canvasContainer"></div>
     <div id="canvasSettings">
-    <div id="colorSettings">
-    <input id="colorPicker" type="color" class="topRow"></input>
-    <button id="colorButton"></button>
-    </div>
-    <div id="otherSettings">
-    <button id="eraser" class="topRow"></button>
-    <button id="rainbowButton"></button>
-    </div>
-    <div id="gridDimensions">
-    <button id="clearButton" class="topRow"></button>
-    <div id="dimensionNum"></div>
-    <input id="gridSlider" type="range" min="1" max="64" value="16"></input>
+      <div id="colorSettings" class="topRow">
+        <input id="colorPicker" type="color"></input>
+        <button id="colorButton"></button>
+        <button id="eraser"></button>
+      </div>
+      <div id="otherSettings" class="bottomRow">
+        <button id="rainbowButton"></button>
+        <button id="clearButton"></button>
+        <div id="dimensionNum"></div>
+        <input id="gridSlider" type="range" min="1" max="64" value="16"></input>
+      </div>
     </div>
     </div>
     <script src="./script.js"></script>
